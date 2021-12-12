@@ -1,4 +1,4 @@
-import React, { VoidFunctionComponent } from "react";
+import React, { useCallback, useEffect, VoidFunctionComponent } from "react";
 import "./Menu.css";
 
 import {
@@ -11,12 +11,32 @@ import {
 interface MenuProps {}
 
 const Menu: VoidFunctionComponent<MenuProps> = () => {
+  const list = document.querySelectorAll(".list");
+
+  const handleMenuClick = useCallback(
+    (ev: Event) => {
+      list.forEach((item) => {
+        item.classList.remove("active");
+      });
+      console.log(ev.target as HTMLElement);
+      (ev.target as HTMLElement).parentElement?.classList.add(
+        "active"
+      );
+    },
+    [list]
+  );
+
+  useEffect(() => {
+    console.log("init");
+    list.forEach((item) => item.addEventListener("click", handleMenuClick));
+  }, [handleMenuClick, list]);
+
   return (
     <div className='root'>
       <div className='navigation'>
         <ul>
           <li className='list active'>
-            <a href='/'>
+            <a href='#'>
               <span className='icon'>
                 <IoHomeOutline />
               </span>
@@ -25,7 +45,7 @@ const Menu: VoidFunctionComponent<MenuProps> = () => {
           </li>
 
           <li className='list'>
-            <a href='/'>
+            <a href='#'>
               <span className='icon'>
                 <IoPersonOutline />
               </span>
@@ -34,7 +54,7 @@ const Menu: VoidFunctionComponent<MenuProps> = () => {
           </li>
 
           <li className='list'>
-            <a href='/'>
+            <a href='#'>
               <span className='icon'>
                 <IoChatbubblesOutline />
               </span>
@@ -42,7 +62,7 @@ const Menu: VoidFunctionComponent<MenuProps> = () => {
             </a>
           </li>
           <li className='list'>
-            <a href='/'>
+            <a href='#'>
               <span className='icon'>
                 <IoCameraOutline />
               </span>
@@ -51,7 +71,7 @@ const Menu: VoidFunctionComponent<MenuProps> = () => {
           </li>
 
           <li className='list'>
-            <a href='/'>
+            <a href='#'>
               <span className='icon'>
                 <IoSettingsOutline />
               </span>
