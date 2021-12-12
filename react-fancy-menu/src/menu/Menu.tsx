@@ -15,7 +15,7 @@ const Menu: VoidFunctionComponent<MenuProps> = () => {
     <div className='root'>
       <div className='navigation'>
         <ul>
-          <li className='list'>
+          <li className='list active'>
             <a href='/'>
               <span className='icon'>
                 <IoHomeOutline />
@@ -58,6 +58,7 @@ const Menu: VoidFunctionComponent<MenuProps> = () => {
               <span className='text'>Settings</span>
             </a>
           </li>
+          <div className='indicator'></div>
         </ul>
       </div>
     </div>
