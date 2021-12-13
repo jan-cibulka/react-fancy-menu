@@ -1,24 +1,21 @@
-.root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 :root {
   --clr: #222327;
 }
 
 .navigation {
-  width: 400px;
+  padding: 0px 20px;
   height: 70px;
   background-color: white;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  min-width: 400px;
+
   ul {
     display: flex;
     padding: 0;
@@ -79,7 +76,7 @@
     height: 70px;
     background: #77fd29;
     transition: 0.5s;
-    box-shadow: 0px 0px 3px var(--clr);
+    box-shadow: 0px 0px 3px var(--clr), inset 0px 0px 3px var(--clr);
     &:before {
       content: "";
       position: absolute;

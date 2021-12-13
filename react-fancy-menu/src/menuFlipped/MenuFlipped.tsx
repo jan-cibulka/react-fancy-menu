@@ -18,7 +18,7 @@ const MenuFlipped: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
   }, []);
 
   return (
-    <div className='root'>
+ 
       <div className='navigation'>
         <ul>
           {menuData.map((item, index) => (
@@ -43,7 +43,7 @@ const MenuFlipped: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
           />
         </ul>
       </div>
-    </div>
+    
   );
 };
 

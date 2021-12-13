@@ -39,10 +39,9 @@
 
 .App {
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  min-width: 100%;
   background-color: var(--clr);
-  flex-direction: column;
-  gap:250px;
+  font-family: "Poppins", sans-serif;
+  overflow: auto;
 }

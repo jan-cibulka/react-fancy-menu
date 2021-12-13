@@ -1,16 +1,13 @@
-.root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 :root {
   --clr: #222327;
 }
 
 .navigation {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
   width: 400px;
   height: 70px;
   background-color: white;
@@ -83,7 +80,7 @@
   border: 6px solid var(--clr);
   width: 70px;
   height: 70px;
-  background: #29fd53;
+  background: #9afd29;
   transition: 0.5s;
 }
 
