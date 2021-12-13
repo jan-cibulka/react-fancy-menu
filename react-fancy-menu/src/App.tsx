@@ -7,11 +7,13 @@ import {
   IoCameraOutline,
   IoSettingsOutline,
 } from "react-icons/io5";
+import MenuFlipped from "./menuFlipped/MenuFlipped";
 
 function App() {
   return (
     <div className='App'>
-      <Menu menuData={menuData} />
+      <MenuFlipped menuData={menuData} />
+      {/* <Menu menuData={menuData} /> */}
     </div>
   );
 }

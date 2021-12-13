@@ -43,4 +43,6 @@
   align-items: center;
   min-height: 100vh;
   background-color: var(--clr);
+  flex-direction: column;
+  gap:250px;
 }
