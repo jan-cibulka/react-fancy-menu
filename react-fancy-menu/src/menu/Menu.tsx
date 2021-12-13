@@ -29,8 +29,8 @@ const Menu: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
                 handleItemClick(index);
               }}>
               <a href='#'>
-                <span className='icon'>{item.icon}</span>
                 <span className='text'>{item.name}</span>
+                <span className='icon'>{item.icon}</span>
               </a>
             </li>
           ))}

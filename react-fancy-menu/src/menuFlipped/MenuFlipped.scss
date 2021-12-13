@@ -55,51 +55,52 @@
           letter-spacing: 0.05em;
           transition: 0.5s;
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(-25px);
         }
       }
     }
     li.active a {
       .icon {
-        transform: translateY(-35px);
+        transform: translateY(35px);
       }
       .text {
         opacity: 1;
-        transform: translateY(10px);
+        transform: translateY(-15px);
       }
     }
   }
   .indicator {
     position: absolute;
     box-sizing: border-box;
-    top: -50%;
+    bottom: -50%;
     border-radius: 50%;
-    border: 6px solid var(--clr);
+    border: 5px solid var(--clr);
     width: 70px;
     height: 70px;
-    background: #cb29fd;
+    background: #77fd29;
     transition: 0.5s;
-    ::before {
+    box-shadow: 0px 0px 3px var(--clr);
+    &:before {
       content: "";
       position: absolute;
-      top: 50%;
+      bottom: 50%;
       left: -20px;
-      width: 20px;
+      width: 19px;
       height: 20px;
       background: transparent;
-      border-top-right-radius: 20px;
-      box-shadow: 0px -10px 0 var(--clr);
+      border-bottom-right-radius: 20px;
+      box-shadow: 1px 10px 0 var(--clr);
     }
-    ::after {
+    &:after {
       content: "";
       position: absolute;
-      top: 50%;
+      bottom: 50%;
       right: -20px;
-      width: 20px;
+      width: 19px;
       height: 20px;
       background: transparent;
-      border-top-left-radius: 20px;
-      box-shadow: 0px -10px 0 var(--clr);
+      border-bottom-left-radius: 20px;
+      box-shadow: -1px 10px 0 var(--clr);
     }
   }
 }
