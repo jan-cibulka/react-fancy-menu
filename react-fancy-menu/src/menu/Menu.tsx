@@ -35,7 +35,11 @@ const Menu: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
             </li>
           ))}
 
-          <div className='indicator'></div>
+          <div
+            className='indicator'
+            style={{
+              transform: `translateX(calc(70px * ${activeIndex})`,
+            }}></div>
         </ul>
       </div>
     </div>
