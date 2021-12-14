@@ -1,5 +1,5 @@
 import React, { useCallback, useState, VoidFunctionComponent } from "react";
-import "./Menu.css";
+import "./MenuFlipped.scss";
 
 export interface MenuItem {
   name: string;
@@ -10,7 +10,7 @@ interface MenuProps {
   menuData: MenuItem[];
 }
 
-const Menu: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
+const MenuFlipped: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleItemClick = useCallback((i: number) => {
@@ -18,7 +18,7 @@ const Menu: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
   }, []);
 
   return (
-    <div className='root'>
+ 
       <div className='navigation'>
         <ul>
           {menuData.map((item, index) => (
@@ -29,8 +29,8 @@ const Menu: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
                 handleItemClick(index);
               }}>
               <a href='#'>
-                <span className='text'>{item.name}</span>
                 <span className='icon'>{item.icon}</span>
+                <span className='text'>{item.name}</span>
               </a>
             </li>
           ))}
@@ -39,11 +39,12 @@ const Menu: VoidFunctionComponent<MenuProps> = ({ menuData }) => {
             className='indicator'
             style={{
               transform: `translateX(calc(70px * ${activeIndex})`,
-            }}></div>
+            }}
+          />
         </ul>
       </div>
-    </div>
+    
   );
 };
 
-export default Menu;
+export default MenuFlipped;
