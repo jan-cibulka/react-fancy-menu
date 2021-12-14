@@ -3,13 +3,11 @@ import Menu, { MenuItem } from "./menu/Menu";
 import {
   IoHomeOutline,
   IoPersonOutline,
-  IoCameraOutline,
   IoSettingsOutline,
   IoLocationOutline,
   IoPeopleOutline,
 } from "react-icons/io5";
 
-import { BiNetworkChart } from "react-icons/bi";
 import { useCallback, useState } from "react";
 
 function App() {
