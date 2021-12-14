@@ -11,7 +11,7 @@ import {
 function App() {
   return (
     <div className='App'>
-      <Menu menuData={menuData} pageColor="black"/>
+      <Menu menuData={menuData} pageColor="blue" backgroundColor="red" indicatorColor="#fff" />
     </div>
   );
 }

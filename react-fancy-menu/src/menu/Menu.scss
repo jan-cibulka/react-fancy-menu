@@ -69,10 +69,8 @@
     border: 5px solid;
     width: 70px;
     height: 70px;
-    transition: 0.5s;
-
-    .before {
-      content: "";
+    transition: 0.4s;
+    .before { 
       position: absolute;
       bottom: 50%;
       left: -20px;
@@ -80,10 +78,8 @@
       height: 20px;
       background: transparent;
       border-bottom-right-radius: 20px;
-      box-shadow: 1px 10px 0 red;
     }
-    .after {
-      content: "";
+    .after {    
       position: absolute;
       bottom: 50%;
       right: -20px;
@@ -91,7 +87,6 @@
       height: 20px;
       background: transparent;
       border-bottom-left-radius: 20px;
-      box-shadow: -1px 10px 0 red;
     }
   }
 }
