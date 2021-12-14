@@ -11,7 +11,7 @@ import {
 function App() {
   return (
     <div className='App'>
-      <Menu menuData={menuData} />
+      <Menu menuData={menuData} pageColor="black"/>
     </div>
   );
 }

@@ -41,7 +41,7 @@
   display: flex;
   min-height: 100vh;
   min-width: 100%;
-  background-color: var(--clr);
+  background-color: black;
   font-family: "Poppins", sans-serif;
   overflow: auto;
 }
