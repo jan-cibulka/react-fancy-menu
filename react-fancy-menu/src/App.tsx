@@ -7,11 +7,25 @@ import {
   IoCameraOutline,
   IoSettingsOutline,
 } from "react-icons/io5";
+import { useCallback, useState } from "react";
 
 function App() {
+  const logChange = useCallback((index: number) => {
+    setActiveIndex(index);
+  }, []);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className='App'>
-      <Menu menuData={menuData} pageColor="blue" backgroundColor="red" indicatorColor="#fff" />
+      <Menu
+        menuData={menuData}
+        pageColor='blue'
+        backgroundColor='red'
+        indicatorColor='#fff'
+        controlledId={activeIndex}
+        onChange={logChange}
+      />
     </div>
   );
 }

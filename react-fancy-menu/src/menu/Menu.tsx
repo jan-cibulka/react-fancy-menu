@@ -1,4 +1,9 @@
-import React, { useCallback, useState, VoidFunctionComponent } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+  VoidFunctionComponent,
+} from "react";
 import "./Menu.scss";
 
 export interface MenuItem {
@@ -11,6 +16,8 @@ interface MenuProps {
   pageColor?: string;
   indicatorColor?: string;
   backgroundColor?: string;
+  onChange?: (index: number) => void;
+  controlledId?: number;
 }
 
 const getCssStyleOverrides = (
@@ -50,8 +57,16 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   indicatorColor,
   backgroundColor,
   pageColor,
+  onChange,
+  controlledId,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (controlledId) {
+      setActiveIndex(controlledId);
+    }
+  }, [controlledId]);
 
   const styles = getCssStyleOverrides(
     indicatorColor,
@@ -59,9 +74,17 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
     pageColor
   );
 
-  const handleItemClick = useCallback((i: number) => {
-    setActiveIndex(i);
-  }, []);
+  const handleItemClick = useCallback(
+    (i: number) => {
+      if (!controlledId) {
+        setActiveIndex(i);
+      }
+      if (onChange) {
+        onChange(i);
+      }
+    },
+    [controlledId, onChange]
+  );
 
   return (
     <div className='navigation' style={styles.navigation}>
@@ -73,10 +96,8 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
             onClick={() => {
               handleItemClick(index);
             }}>
-            <a href='#' style={styles.link}>
-              <span className='icon'>{item.icon}</span>
-              <span className='text'>{item.name}</span>
-            </a>
+            <span className='icon'>{item.icon}</span>
+            <span className='text'>{item.name}</span>
           </li>
         ))}
 
