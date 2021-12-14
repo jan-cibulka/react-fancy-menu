@@ -3,14 +3,17 @@ import Menu, { MenuItem } from "./menu/Menu";
 import {
   IoHomeOutline,
   IoPersonOutline,
-  IoChatbubblesOutline,
   IoCameraOutline,
   IoSettingsOutline,
+  IoLocationOutline,
+  IoPeopleOutline,
 } from "react-icons/io5";
+
+import { BiNetworkChart } from "react-icons/bi";
 import { useCallback, useState } from "react";
 
 function App() {
-  const logChange = useCallback((index: number) => {
+  const handleChange = useCallback((index: number) => {
     setActiveIndex(index);
   }, []);
 
@@ -19,33 +22,51 @@ function App() {
   return (
     <div className='App'>
       <Menu
-        menuData={menuData}
-        pageColor='blue'
-        backgroundColor='red'
-        indicatorColor='#fff'
+        items={items}
         controlledId={activeIndex}
-        onChange={logChange}
+        onChange={handleChange}
+        pageColor='#5e5e79'
       />
     </div>
   );
 }
 
-const menuData: MenuItem[] = [
+const items: MenuItem[] = [
   {
     name: "Home",
     icon: <IoHomeOutline />,
+  },
+  {
+    name: "Map",
+    icon: <IoLocationOutline />,
   },
   {
     name: "Profile",
     icon: <IoPersonOutline />,
   },
   {
-    name: "Message",
-    icon: <IoChatbubblesOutline />,
+    name: "Profile",
+    icon: <IoPersonOutline />,
   },
   {
-    name: "Photos",
-    icon: <IoCameraOutline />,
+    name: "Friends",
+    icon: <IoPeopleOutline />,
+  },
+  {
+    name: "Friends",
+    icon: <IoPeopleOutline />,
+  },
+  {
+    name: "Friends",
+    icon: <IoPeopleOutline />,
+  },
+  {
+    name: "Friends",
+    icon: <IoPeopleOutline />,
+  },
+  {
+    name: "Friends",
+    icon: <IoPeopleOutline />,
   },
   {
     name: "Settings",

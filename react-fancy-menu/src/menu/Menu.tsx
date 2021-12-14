@@ -12,7 +12,7 @@ export interface MenuItem {
 }
 
 interface MenuProps {
-  menuData: MenuItem[];
+  items: MenuItem[];
   pageColor?: string;
   indicatorColor?: string;
   backgroundColor?: string;
@@ -23,37 +23,39 @@ interface MenuProps {
 const getCssStyleOverrides = (
   indicatorColor: string | undefined,
   backgroundColor: string | undefined,
-  pageColor: string | undefined
+  pageColor: string | undefined,
+  itemCount: number
 ) => {
   const INDICATOR_COLOR_DEFAULT = "#95a5ff";
   const BACKGROUND_COLOR_DEFAULT = "#fff";
-  const PAGE_COLOR_DEFUALT = "#222327";
+  const LINK_COLOR_DEFAULT = "#222327";
 
   return {
     navigation: {
       backgroundColor: backgroundColor ?? BACKGROUND_COLOR_DEFAULT,
+      minWidth: itemCount * 70 + 40,
     },
     link: {
-      color: pageColor ?? PAGE_COLOR_DEFUALT,
+      color: pageColor ?? LINK_COLOR_DEFAULT,
     },
     indicator: {
       backgroundColor: indicatorColor ?? INDICATOR_COLOR_DEFAULT,
-      borderColor: pageColor ?? PAGE_COLOR_DEFUALT,
+      borderColor: pageColor ?? "transparent",
       boxShadow: `0px 0px 3px ${
-        pageColor ?? PAGE_COLOR_DEFUALT
-      }, inset 0px 0px 3px ${pageColor ?? PAGE_COLOR_DEFUALT}`,
+        pageColor ?? "transparent"
+      }, inset 0px 0px 3px ${pageColor ?? "transparent"}`,
     },
     indicatorBefore: {
-      boxShadow: `1px 10px 0 ${pageColor ?? PAGE_COLOR_DEFUALT}`,
+      boxShadow: `1px 10px 0 ${pageColor ?? "transparent"}`,
     },
     indicatorAfter: {
-      boxShadow: `-1px 10px 0 ${pageColor ?? PAGE_COLOR_DEFUALT}`,
+      boxShadow: `-1px 10px 0 ${pageColor ?? "transparent"}`,
     },
   };
 };
 
 const Menu: VoidFunctionComponent<MenuProps> = ({
-  menuData,
+  items,
   indicatorColor,
   backgroundColor,
   pageColor,
@@ -71,7 +73,8 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   const styles = getCssStyleOverrides(
     indicatorColor,
     backgroundColor,
-    pageColor
+    pageColor,
+    items.length
   );
 
   const handleItemClick = useCallback(
@@ -89,9 +92,9 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   return (
     <div className='navigation' style={styles.navigation}>
       <ul>
-        {menuData.map((item, index) => (
+        {items.map((item, index) => (
           <li
-            className={`item ${index === activeIndex && "active"}`}
+            className={`item ${index === activeIndex ? "active" : ""}`}
             key={index}
             onClick={() => {
               handleItemClick(index);

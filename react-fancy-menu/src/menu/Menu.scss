@@ -12,8 +12,7 @@
   width: 100%;
   ul {
     display: flex;
-    padding: 0;
-    width: 350px;
+    padding-inline-start: 0;
     li {
       position: relative;
       list-style: none;
@@ -39,7 +38,6 @@
       }
       .text {
         position: absolute;
-
         font-weight: 400;
         font-size: 0.75em;
         letter-spacing: 0.05em;
