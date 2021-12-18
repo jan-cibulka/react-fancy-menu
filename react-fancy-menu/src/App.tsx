@@ -9,6 +9,7 @@ import {
 } from "react-icons/io5";
 
 import { useCallback, useState } from "react";
+import React from "react";
 
 function App() {
   const handleChange = useCallback((index: number) => {

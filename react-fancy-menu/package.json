@@ -2,7 +2,9 @@
   "name": "react-fancy-menu",
   "version": "0.1.0",
   "description": "Beautiful, responsive and configurable menu component.",
-  "main": "./lib/menu.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "license": "MIT",
   "peerDependencies": {
     "react": "^17.0.2",
@@ -28,7 +30,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "webpack": "webpack"
@@ -50,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "react-fancy-menu": "file:C:\\Users\\JanCibulka\\Documents\\GitHub\\react-fancy-menu\\react-fancy-menu"
   }
 }
