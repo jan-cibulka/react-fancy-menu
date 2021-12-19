@@ -6,19 +6,19 @@ import React, {
 } from "react";
 import "./Menu.scss";
 
-type MenuItem {
+type MenuItem = {
   name: string;
   icon: JSX.Element;
-}
+};
 
-type MenuProps =  {
+type MenuProps = {
   items: MenuItem[];
   pageColor?: string;
   indicatorColor?: string;
   backgroundColor?: string;
   onChange?: (index: number) => void;
   controlledId?: number;
-}
+};
 
 const getCssStyleOverrides = (
   indicatorColor: string | undefined,
