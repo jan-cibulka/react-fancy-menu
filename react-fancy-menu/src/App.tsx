@@ -1,5 +1,5 @@
 import "./App.css";
-import Menu, { MenuItem } from "./components/menu/Menu";
+import { MenuItem, Menu } from "./components/menu/Menu";
 import {
   IoHomeOutline,
   IoPersonOutline,

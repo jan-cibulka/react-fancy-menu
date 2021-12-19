@@ -6,12 +6,12 @@ import React, {
 } from "react";
 import "./Menu.scss";
 
-export interface MenuItem {
+type MenuItem {
   name: string;
   icon: JSX.Element;
 }
 
-interface MenuProps {
+type MenuProps =  {
   items: MenuItem[];
   pageColor?: string;
   indicatorColor?: string;
@@ -118,4 +118,4 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   );
 };
 
-export { Menu };
+export { Menu, MenuItem };
