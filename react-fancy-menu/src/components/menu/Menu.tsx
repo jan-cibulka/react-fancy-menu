@@ -118,4 +118,4 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   );
 };
 
-export default Menu;
+export { Menu };
