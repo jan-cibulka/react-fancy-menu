@@ -4,7 +4,9 @@
   "description": "Beautiful, responsive and configurable menu component.",
   "main": "build/index.js",
   "module": "build/index.es.js",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "react": "^17.0.2",
@@ -53,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "node-sass": "^7.0.0"
   }
 }
