@@ -28,29 +28,41 @@ type MenuProps = {
   controlledId?: number;
 };
 
-const INDICATOR_COLOR_DEFAULT = "#95a5ff";
-const BACKGROUND_COLOR_DEFAULT = "#fff";
-const LINK_COLOR_DEFAULT = "#222327";
+export const INDICATOR_COLOR_DEFAULT = "#95a5ff";
+export const BACKGROUND_COLOR_DEFAULT = "#fff";
+export const LINK_COLOR_DEFAULT = "#222327";
 
-const getCssStyleOverrides = (
+export const getCssStyleOverrides = (
+  itemCount: number,
   indicatorColor = "",
   backgroundColor = "",
-  pageColor = "",
-  itemCount: number
+  pageColor = ""
 ) => {
-  const indicatorBackgroundColor = CSS.supports("color", indicatorColor)
-    ? indicatorColor
-    : INDICATOR_COLOR_DEFAULT;
-  const navigationBackgroundColor = CSS.supports("color", backgroundColor)
-    ? backgroundColor
-    : BACKGROUND_COLOR_DEFAULT;
-  const linkColor = CSS.supports("color", pageColor)
-    ? pageColor
-    : LINK_COLOR_DEFAULT;
+  const cssSupportsAvailable = !!CSS.supports;
 
-  const shadowAndBorderColor = CSS.supports("color", pageColor)
-    ? pageColor
-    : "transparent";
+  // let indicatorBackgroundColor = INDICATOR_COLOR_DEFAULT;
+  // let navigationBackgroundColor = BACKGROUND_COLOR_DEFAULT;
+  // let linkColor = LINK_COLOR_DEFAULT;
+  // let shadowAndBorderColor = "transparent";
+  const indicatorBackgroundColor =
+    cssSupportsAvailable && CSS.supports("color", indicatorColor)
+      ? indicatorColor
+      : INDICATOR_COLOR_DEFAULT;
+
+  const navigationBackgroundColor =
+    cssSupportsAvailable && CSS.supports("color", backgroundColor)
+      ? backgroundColor
+      : BACKGROUND_COLOR_DEFAULT;
+
+  const linkColor =
+    cssSupportsAvailable && CSS.supports("color", pageColor)
+      ? pageColor
+      : LINK_COLOR_DEFAULT;
+
+  const shadowAndBorderColor =
+    cssSupportsAvailable && CSS.supports("color", pageColor)
+      ? pageColor
+      : "transparent";
 
   return {
     navigation: {
@@ -91,10 +103,10 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   }, [controlledId]);
 
   const styles = getCssStyleOverrides(
+    items.length,
     indicatorColor,
     backgroundColor,
-    pageColor,
-    items.length
+    pageColor
   );
 
   const handleItemClick = useCallback(

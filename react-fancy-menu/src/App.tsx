@@ -1,5 +1,5 @@
 import "./App.css";
-import { MenuItem, Menu } from "./components/menu/Menu";
+import { MenuItem, Menu, demoMenuContent } from "./components/menu/Menu";
 import {
   IoHomeOutline,
   IoPersonOutline,
@@ -21,35 +21,14 @@ function App() {
   return (
     <div className='App'>
       <Menu
-        items={items}
+        items={demoMenuContent}
         controlledId={activeIndex}
         onChange={handleChange}
         pageColor='#5e5e79'
+        backgroundColor='rgb(100,20,30)'
       />
     </div>
   );
 }
 
-const items: MenuItem[] = [
-  {
-    name: "Home",
-    icon: <IoHomeOutline />,
-  },
-  {
-    name: "Map",
-    icon: <IoLocationOutline />,
-  },
-  {
-    name: "Profile",
-    icon: <IoPersonOutline />,
-  },
-  {
-    name: "Friends",
-    icon: <IoPeopleOutline />,
-  },
-  {
-    name: "Settings",
-    icon: <IoSettingsOutline />,
-  },
-];
 export default App;
