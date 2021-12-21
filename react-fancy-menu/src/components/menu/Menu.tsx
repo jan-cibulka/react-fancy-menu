@@ -6,6 +6,14 @@ import React, {
 } from "react";
 import "./Menu.scss";
 
+import {
+  IoHomeOutline,
+  IoPersonOutline,
+  IoSettingsOutline,
+  IoLocationOutline,
+  IoPeopleOutline,
+} from "react-icons/io5";
+
 type MenuItem = {
   name: string;
   icon: JSX.Element;
@@ -20,36 +28,48 @@ type MenuProps = {
   controlledId?: number;
 };
 
+const INDICATOR_COLOR_DEFAULT = "#95a5ff";
+const BACKGROUND_COLOR_DEFAULT = "#fff";
+const LINK_COLOR_DEFAULT = "#222327";
+
 const getCssStyleOverrides = (
-  indicatorColor: string | undefined,
-  backgroundColor: string | undefined,
-  pageColor: string | undefined,
+  indicatorColor = "",
+  backgroundColor = "",
+  pageColor = "",
   itemCount: number
 ) => {
-  const INDICATOR_COLOR_DEFAULT = "#95a5ff";
-  const BACKGROUND_COLOR_DEFAULT = "#fff";
-  const LINK_COLOR_DEFAULT = "#222327";
+  const indicatorBackgroundColor = CSS.supports("color", indicatorColor)
+    ? indicatorColor
+    : INDICATOR_COLOR_DEFAULT;
+  const navigationBackgroundColor = CSS.supports("color", backgroundColor)
+    ? backgroundColor
+    : BACKGROUND_COLOR_DEFAULT;
+  const linkColor = CSS.supports("color", pageColor)
+    ? pageColor
+    : LINK_COLOR_DEFAULT;
+
+  const shadowAndBorderColor = CSS.supports("color", pageColor)
+    ? pageColor
+    : "transparent";
 
   return {
     navigation: {
-      backgroundColor: backgroundColor ?? BACKGROUND_COLOR_DEFAULT,
+      backgroundColor: navigationBackgroundColor,
       minWidth: itemCount * 70 + 40,
     },
     link: {
-      color: pageColor ?? LINK_COLOR_DEFAULT,
+      color: linkColor,
     },
     indicator: {
-      backgroundColor: indicatorColor ?? INDICATOR_COLOR_DEFAULT,
-      borderColor: pageColor ?? "transparent",
-      boxShadow: `0px 0px 3px ${
-        pageColor ?? "transparent"
-      }, inset 0px 0px 3px ${pageColor ?? "transparent"}`,
+      backgroundColor: indicatorBackgroundColor,
+      borderColor: shadowAndBorderColor,
+      boxShadow: `0px 0px 3px ${shadowAndBorderColor}, inset 0px 0px 3px ${shadowAndBorderColor}`,
     },
     indicatorBefore: {
-      boxShadow: `1px 10px 0 ${pageColor ?? "transparent"}`,
+      boxShadow: `1px 10px 0 ${shadowAndBorderColor}`,
     },
     indicatorAfter: {
-      boxShadow: `-1px 10px 0 ${pageColor ?? "transparent"}`,
+      boxShadow: `-1px 10px 0 ${shadowAndBorderColor}`,
     },
   };
 };
@@ -117,5 +137,28 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
     </div>
   );
 };
+
+export const demoMenuContent: MenuItem[] = [
+  {
+    name: "Home",
+    icon: <IoHomeOutline />,
+  },
+  {
+    name: "Map",
+    icon: <IoLocationOutline />,
+  },
+  {
+    name: "Profile",
+    icon: <IoPersonOutline />,
+  },
+  {
+    name: "Friends",
+    icon: <IoPeopleOutline />,
+  },
+  {
+    name: "Settings",
+    icon: <IoSettingsOutline />,
+  },
+];
 
 export { Menu, MenuItem };

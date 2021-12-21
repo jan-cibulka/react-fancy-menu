@@ -44,26 +44,6 @@ const items: MenuItem[] = [
     icon: <IoPersonOutline />,
   },
   {
-    name: "Profile",
-    icon: <IoPersonOutline />,
-  },
-  {
-    name: "Friends",
-    icon: <IoPeopleOutline />,
-  },
-  {
-    name: "Friends",
-    icon: <IoPeopleOutline />,
-  },
-  {
-    name: "Friends",
-    icon: <IoPeopleOutline />,
-  },
-  {
-    name: "Friends",
-    icon: <IoPeopleOutline />,
-  },
-  {
     name: "Friends",
     icon: <IoPeopleOutline />,
   },
