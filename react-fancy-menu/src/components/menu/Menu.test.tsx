@@ -1,8 +1,8 @@
 /* eslint-disable testing-library/no-debugging-utils */
 import React from "react";
 
-import { shallow, mount, render } from "enzyme";
-import {
+import { mount, render } from "enzyme";
+import  {
   BACKGROUND_COLOR_DEFAULT,
   demoMenuContent,
   getCssStyleOverrides,

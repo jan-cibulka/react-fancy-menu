@@ -18,6 +18,6 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true
   },
-  "include": ["src/components/menu"],
+  "include": ["src/components/Menu"],
   "exclude": ["node_modules", "lib"]
 }

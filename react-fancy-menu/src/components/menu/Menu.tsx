@@ -13,11 +13,7 @@ import {
   IoLocationOutline,
   IoPeopleOutline,
 } from "react-icons/io5";
-
-type MenuItem = {
-  name: string;
-  icon: JSX.Element;
-};
+import { MenuItem } from "./MenuItem";
 
 type MenuProps = {
   items: MenuItem[];
@@ -173,4 +169,4 @@ export const demoMenuContent: MenuItem[] = [
   },
 ];
 
-export { Menu, MenuItem };
+export { Menu };

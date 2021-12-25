@@ -1,15 +1,8 @@
 import "./App.css";
-import { MenuItem, Menu, demoMenuContent } from "./components/menu/Menu";
-import {
-  IoHomeOutline,
-  IoPersonOutline,
-  IoSettingsOutline,
-  IoLocationOutline,
-  IoPeopleOutline,
-} from "react-icons/io5";
-
 import { useCallback, useState } from "react";
 import React from "react";
+import { Menu } from "./components";
+import { demoMenuContent } from "./components/Menu/Menu";
 
 function App() {
   const handleChange = useCallback((index: number) => {
