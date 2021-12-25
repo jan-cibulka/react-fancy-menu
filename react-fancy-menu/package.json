@@ -1,7 +1,10 @@
 {
-  "name": "react-fancy-menu",
-  "version": "0.1.2",
+  "name": "@jan-cibulka/react-fancy-menu",
+  "version": "0.1.3",
   "description": "Beautiful, responsive and configurable menu component.",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/jan-cibulka"
+  },
   "license": "MIT",
   "peerDependencies": {
     "react": "^17.0.2",
