@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { VoidFunctionComponent } from 'react';
 
 declare type MenuItem = {
