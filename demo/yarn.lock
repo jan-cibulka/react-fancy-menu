@@ -6978,10 +6978,10 @@ react-error-overlay@^6.0.10:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.10.tgz#0fe26db4fa85d9dbb8624729580e90e7159a59a6"
   integrity sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==
 
-react-fancy-menu@0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/react-fancy-menu/-/react-fancy-menu-0.1.9.tgz#537027f9fe7b3bbd2d13afb4feb72592e0379e4b"
-  integrity sha512-0a9GySGFVPZI5pZLay9X8MJV8w6T1PBP2tOVTNgBqfjK+REemvq7ZaFSUeBPxS0kVedO3wt/BsBZnir5v28J5A==
+react-fancy-menu@0.1.14:
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/react-fancy-menu/-/react-fancy-menu-0.1.14.tgz#1af9fb5cd630e42dcba7851b1ae91e6cc78c44ff"
+  integrity sha512-8bIrAA+I9eEm/H8CMtsKlxC5hhTLuhTgdmyv58bv2rvOn4znRJ17nJ8KJujqq2YCg6n3dzF6E8UBdK5Q5UlFsw==
 
 react-icons@^4.3.1:
   version "4.3.1"

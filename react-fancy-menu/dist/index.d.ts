@@ -1,5 +1,7 @@
 import { VoidFunctionComponent } from 'react';
 
+declare const FancyButton: VoidFunctionComponent;
+
 declare type MenuItem = {
     name: string;
     icon: JSX.Element;
@@ -15,4 +17,4 @@ declare type MenuProps = {
 };
 declare const Menu: VoidFunctionComponent<MenuProps>;
 
-export { Menu, MenuItem };
+export { FancyButton, Menu, MenuItem };

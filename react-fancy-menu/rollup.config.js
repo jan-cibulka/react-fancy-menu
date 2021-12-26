@@ -22,9 +22,13 @@ export default [
         sourcemap: true,
       },
     ],
+    external: ["react", "react-dom"],
     plugins: [
-      resolve(),
       commonjs(),
+      resolve({
+        browser: true,
+        dedupe: ["react", "react-dom"],
+      }),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
     ],

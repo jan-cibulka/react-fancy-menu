@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Menu } from "react-fancy-menu";
+import { FancyButton } from "react-fancy-menu";
 import {
   IoHomeOutline,
   IoPersonOutline,
@@ -18,33 +18,8 @@ function App() {
 
   return (
     <div className='App'>
-      <Menu
-        controlledId={activeIndex}
-        onChange={handleChange}
-        items={[
-          {
-            name: "Home",
-            icon: <IoHomeOutline />,
-          },
-          {
-            name: "Map",
-            icon: <IoLocationOutline />,
-          },
-          {
-            name: "Profile",
-            icon: <IoPersonOutline />,
-          },
-          {
-            name: "Friends",
-            icon: <IoPeopleOutline />,
-          },
-          {
-            name: "Settings",
-            icon: <IoSettingsOutline />,
-          },
-        ]}
-      />
-    </div>
+      <FancyButton></FancyButton>
+     </div>
   );
 }
 
