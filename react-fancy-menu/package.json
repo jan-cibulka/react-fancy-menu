@@ -1,6 +1,6 @@
 {
   "name": "react-fancy-menu",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Beautiful, responsive and configurable menu component.",
   "license": "MIT",
   "peerDependencies": {
@@ -42,5 +42,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "rollup-plugin-sourcemaps": "^0.6.3"
+  }
 }
