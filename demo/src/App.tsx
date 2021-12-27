@@ -1,24 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useCallback, useState } from "react";
+import "./App.css";
+import { Menu} from "react-fancy-menu";
+import {
+  IoHomeOutline,
+  IoPersonOutline,
+  IoSettingsOutline,
+  IoLocationOutline,
+  IoPeopleOutline,
+} from "react-icons/io5";
 function App() {
+  const handleChange = useCallback((index: number) => {
+    setActiveIndex(index);
+  }, []);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Menu
+        controlledId={activeIndex}
+        onChange={handleChange}
+        pageColor={"#fff"}
+        backgroundColor={"#333222"}
+        indicatorColor={"red"}
+        items={[
+          {
+            name: "Home",
+            icon: <IoHomeOutline />,
+          },
+          {
+            name: "Map",
+            icon: <IoLocationOutline />,
+          },
+          {
+            name: "Profile",
+            icon: <IoPersonOutline />,
+          },
+          {
+            name: "Friends",
+            icon: <IoPeopleOutline />,
+          },
+          {
+            name: "Settings",
+            icon: <IoSettingsOutline />,
+          },
+        ]}
+      />
     </div>
   );
 }

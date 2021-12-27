@@ -1,0 +1,30 @@
+.menu-bottom {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  ul {
+    li {
+      .text {
+        transform: translateY(25px);
+      }
+    }
+    li.active {
+      .icon {
+        transform: translateY(-35px);
+      }
+      .text {
+        transform: translateY(15px);
+      }
+    }
+  }
+  .indicator {
+    top: -50%;
+    .before {
+      top: 50%;
+      border-top-right-radius: 20px;
+    }
+    .after {
+      top: 50%;
+      border-top-left-radius: 20px;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+.menu-dense {
+  padding: 0px 10px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    display: flex;
+    padding-inline-start: 0;
+    li {
+      position: relative;
+      list-style: none;
+      width: 40px;
+      height: 70px;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      font-weight: 500;
+      cursor: pointer;
+      .icon {
+        position: relative;
+        display: block;
+        font-size: 1.5em;
+        text-align: center;
+        transition: 0.5s;
+      }
+      .text {
+        position: absolute;
+        font-weight: 400;
+        font-size: 0.75em;
+        letter-spacing: 0.05em;
+        transition: 0.5s;
+        opacity: 0;
+      }
+    }
+    li.active {
+      .text {
+        opacity: 1;
+      }
+    }
+  }
+  .indicator {
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 5px solid;
+    width: 70px;
+    height: 70px;
+    transition: 0.4s;
+    .before {
+      position: absolute;
+      left: -20px;
+      width: 19px;
+      height: 20px;
+      background: transparent;
+    }
+    .after {
+      position: absolute;
+
+      right: -20px;
+      width: 19px;
+      height: 20px;
+      background: transparent;
+    }
+  }
+}

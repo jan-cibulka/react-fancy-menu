@@ -2,14 +2,13 @@
 import React from "react";
 
 import { mount, render } from "enzyme";
-import  {
+import { Menu } from "../components/Menu/Menu";
+import {
   BACKGROUND_COLOR_DEFAULT,
   demoMenuContent,
   getCssStyleOverrides,
   INDICATOR_COLOR_DEFAULT,
-  LINK_COLOR_DEFAULT,
-  Menu,
-} from "./Menu";
+} from "../components/util";
 
 describe("Test menu items", () => {
   test("no items", () => {
@@ -30,15 +29,9 @@ describe("Test menu items", () => {
 
 describe("Test color overrides", () => {
   test("no colors", () => {
-    let { indicator, navigation, link } = getCssStyleOverrides(10);
+    let { indicator, navigation } = getCssStyleOverrides(10, true);
     expect(navigation.backgroundColor).toBe(BACKGROUND_COLOR_DEFAULT);
-    expect(link.color).toBe(LINK_COLOR_DEFAULT);
     expect(indicator.backgroundColor).toBe(INDICATOR_COLOR_DEFAULT);
     expect(indicator.borderColor).toBe("transparent");
   });
-});
-
-describe("Test controlled id and callback", () => {
-  // const doneChange = jest.fn();
-  // const view = mount(<Menu items={demoMenuContent} onChange={doneChange} />);
 });

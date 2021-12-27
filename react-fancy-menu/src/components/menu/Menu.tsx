@@ -4,16 +4,15 @@ import React, {
   useState,
   VoidFunctionComponent,
 } from "react";
-import "./Menu.scss";
 
-import {
-  IoHomeOutline,
-  IoPersonOutline,
-  IoSettingsOutline,
-  IoLocationOutline,
-  IoPeopleOutline,
-} from "react-icons/io5";
-import { MenuItem } from "./MenuItem";
+import { MenuItem } from "../../MenuItem";
+import { getCssStyleOverrides } from "../util";
+
+import "../../styles/Menu.scss";
+import "../../styles/MenuBottom.scss";
+import "../../styles/MenuTop.scss";
+import "../../styles/MenuDense.scss";
+// import "../../styles/MenuNormalSize.scss";
 
 type MenuProps = {
   items: MenuItem[];
@@ -22,64 +21,8 @@ type MenuProps = {
   backgroundColor?: string;
   onChange?: (index: number) => void;
   controlledId?: number;
-};
-
-export const INDICATOR_COLOR_DEFAULT = "#95a5ff";
-export const BACKGROUND_COLOR_DEFAULT = "#fff";
-export const LINK_COLOR_DEFAULT = "#222327";
-
-export const getCssStyleOverrides = (
-  itemCount: number,
-  indicatorColor = "",
-  backgroundColor = "",
-  pageColor = ""
-) => {
-  const cssSupportsAvailable = !!CSS.supports;
-
-  // let indicatorBackgroundColor = INDICATOR_COLOR_DEFAULT;
-  // let navigationBackgroundColor = BACKGROUND_COLOR_DEFAULT;
-  // let linkColor = LINK_COLOR_DEFAULT;
-  // let shadowAndBorderColor = "transparent";
-  const indicatorBackgroundColor =
-    cssSupportsAvailable && CSS.supports("color", indicatorColor)
-      ? indicatorColor
-      : INDICATOR_COLOR_DEFAULT;
-
-  const navigationBackgroundColor =
-    cssSupportsAvailable && CSS.supports("color", backgroundColor)
-      ? backgroundColor
-      : BACKGROUND_COLOR_DEFAULT;
-
-  const linkColor =
-    cssSupportsAvailable && CSS.supports("color", pageColor)
-      ? pageColor
-      : LINK_COLOR_DEFAULT;
-
-  const shadowAndBorderColor =
-    cssSupportsAvailable && CSS.supports("color", pageColor)
-      ? pageColor
-      : "transparent";
-
-  return {
-    navigation: {
-      backgroundColor: navigationBackgroundColor,
-      minWidth: itemCount * 70 + 40,
-    },
-    link: {
-      color: linkColor,
-    },
-    indicator: {
-      backgroundColor: indicatorBackgroundColor,
-      borderColor: shadowAndBorderColor,
-      boxShadow: `0px 0px 3px ${shadowAndBorderColor}, inset 0px 0px 3px ${shadowAndBorderColor}`,
-    },
-    indicatorBefore: {
-      boxShadow: `1px 10px 0 ${shadowAndBorderColor}`,
-    },
-    indicatorAfter: {
-      boxShadow: `-1px 10px 0 ${shadowAndBorderColor}`,
-    },
-  };
+  isBottom?: boolean;
+  dense?: boolean;
 };
 
 const Menu: VoidFunctionComponent<MenuProps> = ({
@@ -89,6 +32,8 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   pageColor,
   onChange,
   controlledId,
+  isBottom,
+  dense,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -100,6 +45,8 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
 
   const styles = getCssStyleOverrides(
     items.length,
+    isBottom ? true : false,
+    dense ? true : false,
     indicatorColor,
     backgroundColor,
     pageColor
@@ -118,7 +65,11 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
   );
 
   return (
-    <div className='navigation' style={styles.navigation}>
+    <div
+      className={`menu 
+      ${isBottom ? "menu-bottom" : "menu-top"} 
+      ${dense ? "menu-dense" : ""}`}
+      style={styles.navigation}>
       <ul>
         {items.map((item, index) => (
           <li
@@ -136,7 +87,9 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
           className='indicator'
           style={{
             ...styles.indicator,
-            transform: `translateX(calc(70px * ${activeIndex})`,
+            transform: `translateX(calc(${
+              dense ? "40" : "70"
+            }px * ${activeIndex} - ${dense ? "15" : "0"}px)`,
           }}>
           <div className='before' style={styles.indicatorBefore} />
           <div className='after' style={styles.indicatorAfter} />
@@ -145,28 +98,5 @@ const Menu: VoidFunctionComponent<MenuProps> = ({
     </div>
   );
 };
-
-export const demoMenuContent: MenuItem[] = [
-  {
-    name: "Home",
-    icon: <IoHomeOutline />,
-  },
-  {
-    name: "Map",
-    icon: <IoLocationOutline />,
-  },
-  {
-    name: "Profile",
-    icon: <IoPersonOutline />,
-  },
-  {
-    name: "Friends",
-    icon: <IoPeopleOutline />,
-  },
-  {
-    name: "Settings",
-    icon: <IoSettingsOutline />,
-  },
-];
 
 export { Menu };
