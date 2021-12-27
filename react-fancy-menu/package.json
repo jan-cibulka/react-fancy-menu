@@ -1,6 +1,6 @@
 {
   "name": "react-fancy-menu",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "Beautiful, responsive and configurable menu component.",
   "license": "MIT",
   "peerDependencies": {

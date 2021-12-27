@@ -1342,7 +1342,7 @@
     "@rollup/pluginutils" "^3.1.0"
     magic-string "^0.25.7"
 
-"@rollup/pluginutils@^3.1.0":
+"@rollup/pluginutils@^3.0.9", "@rollup/pluginutils@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
   integrity sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==
@@ -6978,10 +6978,12 @@ react-error-overlay@^6.0.10:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.10.tgz#0fe26db4fa85d9dbb8624729580e90e7159a59a6"
   integrity sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==
 
-react-fancy-menu@0.1.14:
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/react-fancy-menu/-/react-fancy-menu-0.1.14.tgz#1af9fb5cd630e42dcba7851b1ae91e6cc78c44ff"
-  integrity sha512-8bIrAA+I9eEm/H8CMtsKlxC5hhTLuhTgdmyv58bv2rvOn4znRJ17nJ8KJujqq2YCg6n3dzF6E8UBdK5Q5UlFsw==
+react-fancy-menu@0.1.18:
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/react-fancy-menu/-/react-fancy-menu-0.1.18.tgz#2b05350af27b7ef81c8c2e9bfde2585b2ae07791"
+  integrity sha512-OShnMskze00XDAKrHsqHf4vVUq40fnSlAHuoci1hvmAxsI9orUYGszrvt1DuZGyeZIFtHBq+lY0wRqiTMS7udA==
+  dependencies:
+    rollup-plugin-sourcemaps "^0.6.3"
 
 react-icons@^4.3.1:
   version "4.3.1"
@@ -7272,6 +7274,14 @@ rimraf@^3.0.0, rimraf@^3.0.2:
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
+
+rollup-plugin-sourcemaps@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-sourcemaps/-/rollup-plugin-sourcemaps-0.6.3.tgz#bf93913ffe056e414419607f1d02780d7ece84ed"
+  integrity sha512-paFu+nT1xvuO1tPFYXGe+XnQvg4Hjqv/eIhG8i5EspfYYPBKL57X7iVbfv55aNVASg3dzWvES9dmWsL2KhfByw==
+  dependencies:
+    "@rollup/pluginutils" "^3.0.9"
+    source-map-resolve "^0.6.0"
 
 rollup-plugin-terser@^7.0.0:
   version "7.0.2"

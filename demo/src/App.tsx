@@ -21,6 +21,9 @@ function App() {
       <Menu
         controlledId={activeIndex}
         onChange={handleChange}
+        pageColor={"#fff"}
+        backgroundColor={"#333222"}
+        indicatorColor={"red"}
         items={[
           {
             name: "Home",
